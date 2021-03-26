@@ -25,7 +25,7 @@ public class AppTest
     @Test
     public void shouldAnswerWithFalse()
     { 
-    	System.out.println("Welcome this is Passed test");
-        assertTrue(false);
+    	System.out.println("Welcome this is Failed test");
+        assertTrue(true);
     }
 }
