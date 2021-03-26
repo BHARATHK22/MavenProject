@@ -18,7 +18,14 @@ public class AppTest
      */
     @Test
     public void shouldAnswerWithTrue()
-    {
+    { 
         System.out.println("Welcome this is Passed test");
+        assertTrue(true);
+    }
+    @Test
+    public void shouldAnswerWithFalse()
+    { 
+    	System.out.println("Welcome this is Passed test");
+        assertTrue(false);
     }
 }
