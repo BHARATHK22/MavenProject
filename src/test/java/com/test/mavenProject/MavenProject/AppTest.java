@@ -2,7 +2,11 @@ package com.test.mavenProject.MavenProject;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
+
+//import static org.junit.Assert.assertTrue;
+
+//import org.junit.Test;
 
 /**
  * Unit test for simple App.
@@ -15,6 +19,6 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        System.out.println("Welcome this is Passed test");
     }
 }
