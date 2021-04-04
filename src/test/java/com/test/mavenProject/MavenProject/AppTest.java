@@ -35,7 +35,7 @@ public class AppTest
     @Test
     public void launchAndCloseBrowser()
     { 
-    	System.out.println("Welcome this is Failed test");
+    	System.out.println("Welcome launchAndCloseBrowser test");
     	System.setProperty("webdriver.chrome.driver", "E:\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.google.co.in");
