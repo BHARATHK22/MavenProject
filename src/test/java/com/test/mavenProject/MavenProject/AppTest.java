@@ -32,7 +32,7 @@ public class AppTest
     	System.out.println("Welcome this is Failed test");
         assertTrue(true);
     }
-    @Test
+    /*@Test
     public void launchAndCloseBrowser()
     { 
     	System.out.println("Welcome launchAndCloseBrowser test");
@@ -43,4 +43,5 @@ public class AppTest
 		driver.findElement(By.name("q")).sendKeys("Jenkins Pipeline",Keys.ENTER);
 		driver.quit();
     }
+    */
 }
