@@ -8,7 +8,7 @@ pipeline {
         }
         stage('test project') {
             steps {
-                sh "mvn test"
+                sh "mvn package exec:java"
             }
         }
     }
