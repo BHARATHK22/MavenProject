@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class AppTest
 {
     /**
      * Rigorous Test :-)
@@ -24,6 +24,7 @@ public class AppTest
     public void shouldAnswerWithTrue()
     { 
         System.out.println("Welcome this is Passed test");
+        System.out.println("inputfolder-->"+System.getProperty("user.dir"));
         assertTrue(true);
     }
     @Test
