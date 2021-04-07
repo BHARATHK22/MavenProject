@@ -26,7 +26,7 @@ public class AppTest extends Generic
     public void shouldAnswerWithTrue()
     { 
         System.out.println("Welcome this is Passed test");
-        System.out.println("inputfolder-->"+InputFileFolder);
+        System.out.println("inputfolder-->"+inputfolder);
         assertTrue(true);
     }
     @Test
