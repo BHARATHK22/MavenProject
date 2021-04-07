@@ -6,9 +6,14 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('test project') {
+        stage('Java project') {
             steps {
                 sh "mvn package exec:java"
+            }
+        }
+        stage('test project') {
+            steps {
+                sh "mvn test"
             }
         }
     }
