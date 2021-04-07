@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import com.test.mavenProject.GenericPackage.Generic;
+
 //import static org.junit.Assert.assertTrue;
 
 //import org.junit.Test;
@@ -15,7 +17,7 @@ import org.testng.annotations.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest
+public class AppTest extends Generic
 {
     /**
      * Rigorous Test :-)
@@ -24,7 +26,7 @@ public class AppTest
     public void shouldAnswerWithTrue()
     { 
         System.out.println("Welcome this is Passed test");
-        System.out.println("inputfolder-->"+System.getProperty("user.dir"));
+        System.out.println("inputfolder-->"+InputFileFolder);
         assertTrue(true);
     }
     @Test
