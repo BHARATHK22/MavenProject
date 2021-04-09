@@ -18,3 +18,9 @@ pipeline {
         }
     }
 }
+node {
+  stage('JIRA') {
+       def key= jiraGetIssue idOrKey: '', site: 'JIRA'
+      echo "${key}"
+  }
+}
