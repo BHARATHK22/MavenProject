@@ -20,7 +20,7 @@ pipeline {
 }
 node {
   stage('JIRA') {
-       def key= jiraGetIssue idOrKey: 'MAV-1', site: 'JIRA'
+       def key= jiraGetFields site: 'JIRA'
       echo "${key}"
   }
 }
