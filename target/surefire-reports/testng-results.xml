@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-04-07T12:37:23 IST" name="Suite" finished-at="2021-04-07T12:37:23 IST" duration-ms="96">
+  <suite started-at="2021-04-07T17:50:27 IST" name="Suite" finished-at="2021-04-07T17:50:27 IST" duration-ms="56">
     <groups>
     </groups>
-    <test started-at="2021-04-07T12:37:23 IST" name="Test" finished-at="2021-04-07T12:37:23 IST" duration-ms="96">
+    <test started-at="2021-04-07T17:50:27 IST" name="Test" finished-at="2021-04-07T17:50:27 IST" duration-ms="56">
       <class name="com.test.mavenProject.MavenProject.AppTest">
-        <test-method signature="shouldAnswerWithFalse()[pri:0, instance:com.test.mavenProject.MavenProject.AppTest@757277dc]" started-at="2021-04-07T12:37:23 IST" name="shouldAnswerWithFalse" finished-at="2021-04-07T12:37:23 IST" duration-ms="12" status="PASS">
+        <test-method signature="shouldAnswerWithFalse()[pri:0, instance:com.test.mavenProject.MavenProject.AppTest@687e99d8]" started-at="2021-04-07T17:50:27 IST" name="shouldAnswerWithFalse" finished-at="2021-04-07T17:50:27 IST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- shouldAnswerWithFalse -->
-        <test-method signature="shouldAnswerWithTrue()[pri:0, instance:com.test.mavenProject.MavenProject.AppTest@757277dc]" started-at="2021-04-07T12:37:23 IST" name="shouldAnswerWithTrue" finished-at="2021-04-07T12:37:23 IST" duration-ms="1" status="PASS">
+        <test-method signature="shouldAnswerWithTrue()[pri:0, instance:com.test.mavenProject.MavenProject.AppTest@687e99d8]" started-at="2021-04-07T17:50:27 IST" name="shouldAnswerWithTrue" finished-at="2021-04-07T17:50:27 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- shouldAnswerWithTrue -->
