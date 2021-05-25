@@ -20,7 +20,7 @@ pipeline {
 }
 node {
   stage('JIRA') {
-       def key= jiraGetFields site: 'JIRA'
-      echo "${key}"
+       jiraJqlSearch jql: 'project = "MavenProject" AND fixVersion = "Unscheduled" AND cycleName = "MavenProject"', site: ''
+      //echo "${key}"
   }
 }
