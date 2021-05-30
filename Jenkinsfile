@@ -21,8 +21,8 @@ pipeline {
                  script {
                   String filePath= "E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv"
                  
-                  			new File(mdCountryCSV).withReader { reader -&gt;
-    						reader.eachLine { line -&gt;
+                  			new File(filePath).withReader { reader ;
+    						reader.eachLine { line ;
         					println line
     						}
 					}
