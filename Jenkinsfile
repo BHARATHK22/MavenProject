@@ -19,13 +19,17 @@ pipeline {
         stage('read') {
                 steps {
                  script {
-                  String filePath= "E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv"
                  
-                  			new File(filePath).withReader { reader ;
-    						reader.eachLine { line ;
-        					println line
-    						}
-					}
+                  			readFile("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv").eachLine { line, count ->
+                            def fields = line.split(',')
+                            
+                            for(String item: fields) {
+                                println 'Test Case::'+${item}
+                                println 'you are parsing line : ' + count
+                   }
+                   
+                  
+                 }
               }
             }
 			}
