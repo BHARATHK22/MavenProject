@@ -21,10 +21,10 @@ pipeline {
                  script {
                  
                   			readFile("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv").eachLine { line, count ->
-                            def fields = line.split(',')
+                            //def fields = line.split(',')
                             
-                            for(String item: fields) {
-                                println 'Test Case::'+${item}
+                            for(String testCase: line) {
+                                println 'Test Case::'+testCase
                                 println 'you are parsing line : ' + count
                    }
                    
