@@ -20,15 +20,8 @@ pipeline {
                 steps {
                  script {
                  
-                  			readFile("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv").eachLine { line, count ->
-                            //def fields = line.split(',')
-                            
-                            for(String testCase: line) {
-                                println 'Test Case::'+testCase
-                                println 'you are parsing line : ' + count
-                   }
-                   
-                  
+                  			readFile("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv").eachLine { String line ->
+                            println 'Test Case::'+line
                  }
               }
             }
