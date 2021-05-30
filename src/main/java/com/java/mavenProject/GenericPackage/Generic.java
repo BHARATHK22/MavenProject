@@ -1,4 +1,4 @@
-package com.test.mavenProject.GenericPackage;
+package com.java.mavenProject.GenericPackage;
 
 public class Generic{
 	public static String inputfolder = System.getProperty("user.dir")+"\\InputFiles";

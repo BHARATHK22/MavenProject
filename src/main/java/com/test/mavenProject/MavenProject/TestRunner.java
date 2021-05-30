@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import com.test.mavenProject.GenericPackage.Generic;
+import com.java.mavenProject.GenericPackage.Generic;
 
 /**
  * Hello world!

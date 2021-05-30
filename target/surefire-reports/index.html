@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,26 +93,35 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,  1 skipped,  </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
                     </span>
-                    <div class="method-list-content passed suite-Suite">
+                    <div class="method-list-content failed suite-Suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.test.mavenProject.MavenProject.AppTest" class="method navigator-link" hash-for-method="shouldAnswerWithFalse">shouldAnswerWithFalse</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="skipped.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.test.mavenProject.MavenProject.AppTest" class="method navigator-link" hash-for-method="shouldAnswerWithTrue">shouldAnswerWithTrue</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Suite -->
+                    </div> <!-- method-list-content skipped suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -124,9 +133,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-passed">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">com.test.mavenProject.MavenProject.AppTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -135,17 +144,51 @@
                   <a name="shouldAnswerWithFalse">
                   </a> <!-- shouldAnswerWithFalse -->
                   <span class="method-name">shouldAnswerWithFalse</span>
+                  <div class="stack-trace">java.lang.AssertionError
+	at com.test.mavenProject.MavenProject.AppTest.shouldAnswerWithFalse(AppTest.java:49)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.test.mavenProject.MavenProject.AppTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="shouldAnswerWithTrue">
                   </a> <!-- shouldAnswerWithTrue -->
                   <span class="method-name">shouldAnswerWithTrue</span>
+                  <div class="stack-trace">org.catools.common.config.CConfigNotDefinedException: Configuration is not defined: ZAPI_HOME
+To work with configuration you need to defined it first.
+We need all configuration parameters so we can use this information while you are using application in cli mode.
+To do so you need to add this information to your default yaml file in following format:
+- name: &quot;String: &lt;Configuration Name&gt;&quot;
+  descriptions: &quot;String: &lt;Command line prompt to inform use about the propose of config if the value is not set&gt;&quot;
+  defaultValue: &quot;String: &lt;Default value so we can use it if value is not set, note that we do not prompt user if default value set&gt;&quot;
+  required: &lt;Boolean: Shall we prompt user for this config if it is not set or we can ignore this&gt;
+  sensitive: &lt;Boolean: if the configuration information is sensitive and should mask in log&gt;
+
+	at org.catools.common.config.CConfigInfoCollection.lambda$getByName$1(CConfigInfoCollection.java:21)
+	at org.catools.common.collections.interfaces.CIterable.getFirstOrThrow(CIterable.java:254)
+	at org.catools.common.config.CConfigInfoCollection.getByName(CConfigInfoCollection.java:20)
+	at org.catools.common.config.CConfigInfoCollection.getByName(CConfigInfoCollection.java:16)
+	at org.catools.common.config.CConfigInfoCollection.getString(CConfigInfoCollection.java:68)
+	at org.catools.zapi.configs.CZApiConfigs$ZApi.getZApiUri(CZApiConfigs.java:12)
+	at org.catools.zapi.rest.CZApiRestClient.get(CZApiRestClient.java:19)
+	at org.catools.zapi.rest.util.CZApiProjectClient.getProjects(CZApiProjectClient.java:15)
+	at org.catools.zapi.rest.cycle.CZApiCycleClient.getCycleById(CZApiCycleClient.java:39)
+	at com.test.mavenProject.MavenProject.AppTest.jiraTest(AppTest.java:67)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
+          </div> <!-- suite-Suite-class-skipped -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -202,7 +245,7 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'shouldAnswerWithFalse')
 data.setCell(0, 2, 'com.test.mavenProject.MavenProject.AppTest')
-data.setCell(0, 3, 7);
+data.setCell(0, 3, 29);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'shouldAnswerWithTrue')
 data.setCell(1, 2, 'com.test.mavenProject.MavenProject.AppTest')
@@ -211,7 +254,7 @@ window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 ms</span>
+              <span class="suite-total-time">Total running time: 29 ms</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -239,13 +282,25 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.test.mavenProject.MavenProject.AppTest</div> <!-- chronological-class-name -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">shouldAnswerWithFalse</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">jiraTest([TestResult name=shouldAnswerWithFalse status=FAILURE method=AppTest.shouldAnswerWithFalse()[pri:0, ...)</span>
+                <span class="method-start">38 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">shouldAnswerWithTrue</span>
-                <span class="method-start">11 ms</span>
+                <span class="method-start">2857 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">jiraTest</span>
+                <span class="method-start">2863 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
