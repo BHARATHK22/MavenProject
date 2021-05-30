@@ -20,11 +20,13 @@ pipeline {
                 steps {
                  script {
                  
-                  			readFile("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv").eachLine { String line ->
-                            println 'Test Case::'+line
+                  			def lines=readFile("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv").readLines()
+                  			lines.each{String line ->
+  								println line
+							}
                  }
               }
             }
-			}
+		}
     }
 }
