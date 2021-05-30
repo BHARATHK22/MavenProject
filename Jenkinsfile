@@ -1,3 +1,4 @@
+import static com.xlson.groovycsv.CsvParser.parseCsv
 pipeline {
     agent any
     stages {
