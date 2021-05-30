@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment{
+        NEW_VERSION='1.3.0' 
+        def readTestCases ="E:\\eclipse-workspace\\MavenProject\\InputFiles\\"
+        def testCase=""
+    }
     stages {
         stage('Hello') {
             steps {
@@ -21,8 +26,8 @@ pipeline {
                  script {
                  
                   			def lines=readFile("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv").readLines()
-                  			lines.each{String line ->
-  								println line
+                  			lines.each{String testCase ->
+  								println testCase
 							}
                  }
               }
