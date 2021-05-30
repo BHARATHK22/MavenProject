@@ -29,8 +29,8 @@ pipeline {
                   			lines.each{String testCase ->
   							println 'TestCase::'+testCase
   							
-  							data = readFile(file: "${readTestCases}TestRunner.csv")
-                  			jiraUploadAttachment idOrKey: "${data}", file: 'C:\\Users\\Dell\\.jenkins\\workspace\\GitPipeline\\target\\surefire-reports\\emailable-report.html', site: 'JIRA'
+  							//data = "${readTestCases}TestRunner.csv"
+                  			jiraUploadAttachment idOrKey: "${testCase}", file: 'C:\\Users\\Dell\\.jenkins\\workspace\\GitPipeline\\target\\surefire-reports\\emailable-report.html', site: 'JIRA'
   							
 							}
                  }
