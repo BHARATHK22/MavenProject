@@ -28,17 +28,9 @@ pipeline {
                                 println ' you are parsing line : ' + count
                    }
                    
-                  //data = readFile(file: "${readTestCases}TestRunner.csv")
-                  //jiraUploadAttachment idOrKey: "${data}", file: 'C:\\Users\\Dell\\.jenkins\\workspace\\GitPipeline\\target\\surefire-reports\\emailable-report.html', site: 'JIRA'
-                  //println(data)
+                  
                  }
               }
             }
     }
-}
-node {
-  stage('JIRA') {
-       jiraJqlSearch jql: 'project = "MavenProject" AND fixVersion = "Unscheduled" AND cycleName = "MavenProject"', site: ''
-      //echo "${key}"
-  }
 }
