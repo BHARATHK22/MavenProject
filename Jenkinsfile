@@ -27,7 +27,11 @@ pipeline {
                  
                   			def lines=readFile("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv").readLines()
                   			lines.each{String testCase ->
-  								println testCase
+  							println 'TestCase::'+testCase
+  							
+  							data = readFile(file: "${readTestCases}TestRunner.csv")
+                  			jiraUploadAttachment idOrKey: "${data}", file: 'C:\\Users\\Dell\\.jenkins\\workspace\\GitPipeline\\target\\surefire-reports\\emailable-report.html', site: 'JIRA'
+  							
 							}
                  }
               }
