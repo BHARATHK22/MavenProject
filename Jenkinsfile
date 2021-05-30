@@ -19,7 +19,7 @@ pipeline {
         stage('read') {
                 steps {
                  script {
-                  File csvFile = new File("E:\eclipse-workspace\MavenProject\InputFiles\TestRunner.csv")
+                  File csvFile = new File("E:\\eclipse-workspace\\MavenProject\\InputFiles\\TestRunner.csv")
                   def csv_content = csvFile.getText('utf-8')
   				  def data_iterator = parseCsv(csv_content, separator: ';', readFirstLine: true)
   				  
