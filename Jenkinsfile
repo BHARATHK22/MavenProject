@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Java project') {
             steps {
-                
+               script { 
 				def workspace = WORKSPACE
 				echo ${workspace} 
 
@@ -21,6 +21,7 @@ pipeline {
 
 
 				echo "Current workspace is $WORKSPACE"
+				}
             }
         }
      }   	
