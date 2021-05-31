@@ -11,17 +11,13 @@ pipeline {
             steps {
                script { 
 				def workspace = WORKSPACE
-				echo ${workspace} 
+				print "workspace"+workspace 
 
 				workspace = env.WORKSPACE
-				echo ${workspace} 
+				print "workspace"+workspace 
 
 				
-				echo "Current workspace is ${env.WORKSPACE}"
-
-
-				echo "Current workspace is $WORKSPACE"
-				}
+								}
             }
         }
      }   	
