@@ -16,10 +16,10 @@ pipeline {
 				def directory = pwd()
 				print "Directory->"+directory
 				
-				def props = readProperties  file: 'directory//logTestcaseFolder//logTestcaseFolder.properties'
+				def props = readProperties  file: 'directory/logTestcaseFolder/logTestcaseFolder.properties'
 				
-				println "0-->"+props.getProperty("0")
-				println "1-->"+props.getProperty("1")
+				println "0-->"+props['0']
+				println "1-->"+props['1']
 				}
             }
         }
