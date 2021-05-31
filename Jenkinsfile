@@ -16,8 +16,9 @@ pipeline {
 				workspace = env.WORKSPACE
 				print "workspace"+workspace 
 
-				
-								}
+				def directory = pwd()
+				print "directory->"+directory
+				}
             }
         }
      }   	
