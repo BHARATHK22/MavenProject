@@ -11,5 +11,6 @@ pipeline {
             steps {
                 println scriptDir
             }
-        }	
+        }
+     }   	
 }
