@@ -11,13 +11,15 @@ pipeline {
             steps {
                script { 
 				def workspace = WORKSPACE
-				print "workspace"+workspace 
-
-				workspace = env.WORKSPACE
-				print "workspace"+workspace 
+				print "Workspace->"+workspace 
 
 				def directory = pwd()
-				print "directory->"+directory
+				print "Directory->"+directory
+				
+				def props = readProperties  file: 'directory//logTestcaseFolder//logTestcaseFolder.properties
+				
+				println "0-->"+props.getProperty("0")
+				println "1-->"props.getProperty("1")
 				}
             }
         }
