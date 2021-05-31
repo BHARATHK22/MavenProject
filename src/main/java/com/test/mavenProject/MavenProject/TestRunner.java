@@ -2,34 +2,59 @@ package com.test.mavenProject.MavenProject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.Scanner;
 
 import com.java.mavenProject.GenericPackage.Generic;
+import com.java.mavenProject.GenericPackage.GenericFunctions;
+import com.java.mavenProject.GenericPackage.GetProperties;
 
-/**
- * Hello world!
- *
- */
-public class TestRunner extends Generic
-{
-    public static void main( String[] args )
-    {
-    	Scanner sc;
+
+public class TestRunner extends Generic {
+	static Scanner scanner;
+	public static void main(String[] args) {
+		GetProperties.initializeEnvironment("UiConfig");
+		
+		
 		try {
-			sc = new Scanner(new File(inputfolder+"\\TestRunner.csv"));
-
-			while (sc.hasNextLine()) 
+			
+			scanner = new Scanner(new File(inputfolder+"\\TestRunner.csv"));
+			File file = new File(logTestcaseFolder+"logTestCaseFile.properties");
+	          
+	        if(file.exists())
+	        {
+	        	file.delete();
+	            System.out.println("File deleted successfully");
+	        }
+	        else
+	        {
+	            System.out.println("Failed to delete the file");
+	        }
+			properties = new Properties();
+			int count=0;
+			while (scanner.hasNextLine()) // returns a boolean value
 			{
 				
-				String line=sc.nextLine();
-				System.out.println("Line::"+line);
-				
+				testCase= scanner.nextLine();
+				randomTestCaseName = testCase+"_"+GenericFunctions.randomNumber();
+				GenericFunctions.runTestCase(testCase);
+				properties.put(Integer.toString(count), randomTestCaseName); 
+				count++;
 			}
-			
-			sc.close(); 
+			scanner.close();
+			FileOutputStream outputStrem = new FileOutputStream(logTestcaseFolder+"logTestCaseFile.properties");
+			properties.store(outputStrem, null);
+			//properties.c
 		} catch (FileNotFoundException e) {
-			System.out.println("Exception is::"+e.getMessage());
+			e.printStackTrace();
+			System.out.println("Invalid File Provided");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
+	}
+	
+
 }

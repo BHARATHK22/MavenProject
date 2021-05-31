@@ -6,7 +6,7 @@ pipeline {
         def testCase=""
     }
     stages {
-        stage('Hello') {
+        stage('Simple print Project') {
             steps {
                 echo 'Hello World'
             }
