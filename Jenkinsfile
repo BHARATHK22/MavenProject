@@ -38,7 +38,7 @@ pipeline {
         			println "Number-->"+i
         			def value = i.toString();
         			def testCaseReportPath= testReportFolder+props[value]+".html"
-        			println "testCaseReportPath-->"+testCaseResportPath     
+        			println "testCaseReportPath-->"+testCaseReportPath     
         			
         			
   									
