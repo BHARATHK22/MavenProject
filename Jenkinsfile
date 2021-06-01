@@ -20,9 +20,9 @@ pipeline {
 				
 				//loadProperties()
 				
-				//def props = readProperties  file: '/directory/logTestcaseFolder/logTestcaseFolder.properties'
-				//println "0-->"+props['0']
-				//println "1-->"+props['1']
+				def props = readProperties  file: '/directory/logTestcaseFolder/logTestcaseFolder.properties'
+				println "0-->"+props['0']
+				println "1-->"+props['1']
 				}
             }
         }
