@@ -28,13 +28,15 @@ pipeline {
 				println "1-->"+props['1']
 				
 				
-				def traditional_int_for_loop(list) {
+				//def traditional_int_for_loop(props) {
     			println "echo Going to echo a list"
     			for (int i = 0; i < props.size(); i++) {
+        			
         			println "echo Hello ${props[i]}"
+        			
     				}
-				}
-				}
+				 
+			  }
             }
         }
      }   	
