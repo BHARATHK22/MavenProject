@@ -31,19 +31,16 @@ pipeline {
 				
 				def testReportFolder= "${workspace}/Report/"
 				
-				
-				//def traditional_int_for_loop(props) {
+				Set<Object> keys = props.keySet();
     			
-    			for (int i = 0; i < props.size(); i++) {
-        			println "Number-->"+i
-        			def value = i.toString();
+    			for (Object key:keys) {
+        			println "key-->"+key
+        			def value = props[key]
         			def testCaseReportPath= testReportFolder+props[value]+".html"
         			println "testCaseReportPath-->"+testCaseReportPath     
         			
         			
-  									
-        			//jiraUploadAttachment idOrKey: "${testCase}", file:testCaseReportPath, site: 'JIRA'
-        						
+  								
    				}
 			  }
             }
