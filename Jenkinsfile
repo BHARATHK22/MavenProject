@@ -13,19 +13,27 @@ pipeline {
             steps {
                script { 
 				def workspace = WORKSPACE
-				print "Workspace->"+workspace 
+				println "Workspace->"+workspace 
 
 				def directory = pwd()
-				print "Directory->"+directory
+				println "Directory->"+directory
 				
 				//loadProperties()
 				def filePath = "${workspace}/logTestcaseFolder/logTestCaseFile.properties"
-				print "filePath-->"+filePath
+				println "filePath-->"+filePath
 				def props = readProperties  file: filePath
 				
 				println "sizeOfProperty-->"+props.size()
 				println "0-->"+props['0']
 				println "1-->"+props['1']
+				
+				
+				def traditional_int_for_loop(list) {
+    			println "echo Going to echo a list"
+    			for (int i = 0; i < list.size(); i++) {
+        			println "echo Hello ${list[i]}"
+    				}
+				}
 				}
             }
         }
