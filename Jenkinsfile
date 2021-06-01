@@ -14,7 +14,7 @@ pipeline {
     
     	stage('Java project') {
             steps {
-                sh "mvn package exec:java"
+                sh "mvn exec:java"
             }
         }
     
