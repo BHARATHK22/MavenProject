@@ -32,7 +32,8 @@ pipeline {
     			println "echo Going to echo a list"
     			for (int i = 0; i < props.size(); i++) {
         			println "Number-->"+i
-        			println "echo Hello ${props['i']}"
+        			def value = i.toString();
+        			println "Data"+props[value]
         			
     				}
 				 
