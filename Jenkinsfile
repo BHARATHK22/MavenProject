@@ -7,6 +7,8 @@ pipeline {
         def readTestCases ="E:\\eclipse-workspace\\MavenProject\\InputFiles\\"
         def testCase=""
         def scriptDir = "getClass().protectionDomain.codeSource.location.path"
+        def workspace = WORKSPACE
+        def testReportFolder= "${workspace}/Report/"
     }
     stages {
         stage('Java project') {
@@ -33,7 +35,8 @@ pipeline {
     			for (int i = 0; i < props.size(); i++) {
         			println "Number-->"+i
         			def value = i.toString();
-        			println "Data"+props[value]
+        			def testCaseResportPath= testReportFolder+props[value]+".html"
+        			println "testCaseResportPath-->"+testCaseResportPath
         			
     				}
 				 
