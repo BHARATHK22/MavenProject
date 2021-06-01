@@ -20,8 +20,8 @@ pipeline {
 				
 				//loadProperties()
 				def filePath = "${workspace}/logTestcaseFolder/logTestCaseFile.properties"
-				
-				def props = readProperties  file: 'filePath'
+				print "filePath-->"+filePath
+				def props = readProperties  file: filePath
 				println "0-->"+props['0']
 				println "1-->"+props['1']
 				}
