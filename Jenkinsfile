@@ -19,7 +19,7 @@ pipeline {
 				print "Directory->"+directory
 				
 				//loadProperties()
-				def filePath = "${workspace}\logTestcaseFolder\logTestCaseFile.properties"
+				def filePath = "${workspace}/logTestcaseFolder/logTestCaseFile.properties"
 				print "filePath-->"+filePath
 				def props = readProperties  file: filePath
 				
