@@ -11,7 +11,14 @@ pipeline {
         
     }
     stages {
-        stage('Java project') {
+    
+    	stage('Java project') {
+            steps {
+                sh "mvn package exec:java"
+            }
+        }
+    
+        stage('Jira project') {
             steps {
                script { 
 				def workspace = WORKSPACE
