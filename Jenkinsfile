@@ -20,26 +20,26 @@ pipeline {
 				def directory = pwd()
 				println "Directory->"+directory
 				
-				//loadProperties()
+				
 				def filePath = "${workspace}/logTestcaseFolder/logTestCaseFile.properties"
 				println "filePath-->"+filePath
 				def props = readProperties  file: filePath
 				
 				println "sizeOfProperty-->"+props.size()
-				println "0-->"+props['0']
-				println "1-->"+props['1']
 				
 				def testReportFolder= "${workspace}/Report/"
 				
 				Set<Object> keys = props.keySet();
     			
     			for (Object key:keys) {
-        			println "key-->"+key
+        			println "Key  -->"+key
         			def value = props[key]
-        			def testCaseReportPath= testReportFolder+props[value]+".html"
+        			println "Value-->"+value
+        			
+        			def testCaseReportPath= testReportFolder+props[key]+".html"
         			println "testCaseReportPath-->"+testCaseReportPath     
         			
-        			
+        			jiraUploadAttachment idOrKey: "${key}", file: testCaseReportPath, site: 'JIRA'
   								
    				}
 			  }
