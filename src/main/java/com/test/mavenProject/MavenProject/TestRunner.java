@@ -40,7 +40,7 @@ public class TestRunner extends Generic {
 				testCase= scanner.nextLine();
 				randomTestCaseName = testCase+"_"+GenericFunctions.randomNumber();
 				GenericFunctions.runTestCase(testCase);
-				properties.put(Integer.toString(count), randomTestCaseName); 
+				properties.put(testCase, randomTestCaseName); 
 				count++;
 			}
 			scanner.close();

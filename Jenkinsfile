@@ -31,16 +31,20 @@ pipeline {
 				
 				def testReportFolder= "${workspace}/Report/"
 				
+				
 				//def traditional_int_for_loop(props) {
-    			println "echo Going to echo a list"
+    			
     			for (int i = 0; i < props.size(); i++) {
         			println "Number-->"+i
         			def value = i.toString();
-        			def testCaseResportPath= testReportFolder+props[value]+".html"
-        			println "testCaseResportPath-->"+testCaseResportPath
+        			def testCaseReportPath= testReportFolder+props[value]+".html"
+        			println "testCaseReportPath-->"+testCaseResportPath     
         			
-    				}
-				 
+        			
+  									
+        			//jiraUploadAttachment idOrKey: "${testCase}", file:testCaseReportPath, site: 'JIRA'
+        						
+   				}
 			  }
             }
         }
