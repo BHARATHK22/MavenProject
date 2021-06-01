@@ -1,3 +1,13 @@
+def loadProperties() {
+    node {
+        checkout scm
+        properties = new Properties()
+        File propertiesFile = new File("${workspace}/logTestcaseFolder/logTestcaseFolder.properties")
+        properties.load(propertiesFile.newDataInputStream())
+        echo "Immediate one ${properties.repo}"
+    }
+}
+
 pipeline {
     agent any
     environment{
@@ -16,10 +26,11 @@ pipeline {
 				def directory = pwd()
 				print "Directory->"+directory
 				
-				def props = readProperties  file: '/directory/logTestcaseFolder/logTestcaseFolder.properties'
+				loadProperties()
 				
-				println "0-->"+props['0']
-				println "1-->"+props['1']
+				//def props = readProperties  file: '/directory/logTestcaseFolder/logTestcaseFolder.properties'
+				//println "0-->"+props['0']
+				//println "1-->"+props['1']
 				}
             }
         }
