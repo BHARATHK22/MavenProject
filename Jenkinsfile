@@ -7,8 +7,8 @@ pipeline {
         def readTestCases ="E:\\eclipse-workspace\\MavenProject\\InputFiles\\"
         def testCase=""
         def scriptDir = "getClass().protectionDomain.codeSource.location.path"
-        def workspace = WORKSPACE
-        def testReportFolder= "${workspace}/Report/"
+        //def workspace = WORKSPACE
+        
     }
     stages {
         stage('Java project') {
@@ -29,6 +29,7 @@ pipeline {
 				println "0-->"+props['0']
 				println "1-->"+props['1']
 				
+				def testReportFolder= "${workspace}/Report/"
 				
 				//def traditional_int_for_loop(props) {
     			println "echo Going to echo a list"
