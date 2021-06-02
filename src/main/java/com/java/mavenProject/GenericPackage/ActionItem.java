@@ -32,6 +32,8 @@ public class ActionItem extends Generic {
 			} else {
 				System.out.println("WebElement NOT  Found::");
 				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
+				HTMLReport.closeReport();
+				driver.quit();
 			}
 			System.out.println("*************End of Click*****************");
 			break;
@@ -58,15 +60,17 @@ public class ActionItem extends Generic {
 				java.util.Iterator<String> iterator = keys.iterator();
 				System.out.println("InputData keys::"+keys.toString());
 				if (list.size() == keys.size()) {
-					System.out.println("Welcome boss::");
+					System.out.println("WebElement NOT  Found::");
 					for (int i = 0; i < list.size(); i++) {
 						list.get(i).sendKeys(hashMap.get(iterator.next()));
 					}
 					HTMLReport.testReport(line[0], line[1] + "\n" + line[2] + "\n" + line[3], "PASS",
 							GenericFunctions.screeshot(driver));
 				} else {
-					HTMLReport.testReport(line[0], line[1] + line[2] + line[3], "FAIL",
-							GenericFunctions.screeshot(driver));
+					System.out.println("WebElement NOT  Found::");
+					HTMLReport.testReport(line[0], line[1] + line[2] + line[3], "FAIL",GenericFunctions.screeshot(driver));
+					HTMLReport.closeReport();
+					driver.quit();
 				}
 				list=null;
 				Thread.sleep(3000);
@@ -91,7 +95,10 @@ public class ActionItem extends Generic {
 			if (flag == true) {
 				HTMLReport.testReport(line[0], url, "PASS", GenericFunctions.screeshot(driver));
 			} else {
+				System.out.println("WebElement NOT  Found::");
 				HTMLReport.testReport(line[0], url, "FAIL", GenericFunctions.screeshot(driver));
+				HTMLReport.closeReport();
+				driver.quit();
 			}
 			break;
 		case IsDisplayed:
@@ -105,6 +112,8 @@ public class ActionItem extends Generic {
 			} else {
 				System.out.println("WebElement NOT  Found::");
 				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
+				HTMLReport.closeReport();
+				driver.quit();
 			}
 			System.out.println("*************End of IsDisplayed*****************");
 
