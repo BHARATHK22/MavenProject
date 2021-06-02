@@ -7,6 +7,7 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.java.mavenProject.ReportModule.HTMLReport;
 
@@ -83,7 +84,9 @@ public class ActionItem extends Generic {
 			// System.out.println("Navigate");
 			if (hm.get("environment").equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver", driversPath + "\\chromedriver.exe");
-				driver = new ChromeDriver();
+				ChromeOptions options = new ChromeOptions();
+		        options.addArguments("headless");
+				driver = new ChromeDriver(options);
 			}
 			if (hm.get("environment").equalsIgnoreCase("firefox")) {
 				System.out.println("firefox not available");
