@@ -44,8 +44,8 @@ public class TestRunner extends Generic {
 				count++;
 			}
 			scanner.close();
-			FileOutputStream outputStrem = new FileOutputStream(logTestcaseFolder+"logTestCaseFile.properties");
-			properties.store(outputStrem, null);
+			FileOutputStream outputStream = new FileOutputStream(logTestcaseFolder+"logTestCaseFile.properties");
+			properties.store(outputStream, null);
 			//properties.c
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

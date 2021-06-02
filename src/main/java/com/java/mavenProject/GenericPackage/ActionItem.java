@@ -61,7 +61,7 @@ public class ActionItem extends Generic {
 				java.util.Iterator<String> iterator = keys.iterator();
 				System.out.println("InputData keys::"+keys.toString());
 				if (list.size() == keys.size()) {
-					System.out.println("WebElement NOT  Found::");
+					System.out.println("WebElement Found::");
 					for (int i = 0; i < list.size(); i++) {
 						list.get(i).sendKeys(hashMap.get(iterator.next()));
 					}
@@ -84,9 +84,14 @@ public class ActionItem extends Generic {
 			// System.out.println("Navigate");
 			if (hm.get("environment").equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver", driversPath + "\\chromedriver.exe");
-				ChromeOptions options = new ChromeOptions();
-		        options.addArguments("headless");
-				driver = new ChromeDriver(options);
+				if(hm.get("headless").equalsIgnoreCase("true")) {
+					ChromeOptions options = new ChromeOptions();
+					options.addArguments("headless");
+					driver = new ChromeDriver(options);
+				}
+				if(hm.get("headless").equalsIgnoreCase("false")) {
+					driver = new ChromeDriver();
+				}	
 			}
 			if (hm.get("environment").equalsIgnoreCase("firefox")) {
 				System.out.println("firefox not available");
