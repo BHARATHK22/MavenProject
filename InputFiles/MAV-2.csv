@@ -1,4 +1,5 @@
 Action,Properties,Subject1,Subject2
 Navigate,testPage,,
+IsDisplayed,HomePage.HomePage.LoginPage.SignIn,,
 Click,HomePage.HomePage.LoginPage.SignIn,,
 Quit

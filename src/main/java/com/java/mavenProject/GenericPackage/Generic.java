@@ -20,7 +20,7 @@ public class Generic {
 	public static int count = 0;
 	public static int flag = 0;
 	public static WebDriver driver;
-	public static Scanner scanner;
+	public static Scanner readTestCase;
 	public static JSONObject jsonObject;
 	public static JSONParser jsonParser = new JSONParser();
 	public static String environment;
@@ -38,4 +38,7 @@ public class Generic {
 	public static String logTestcaseFolder=System.getProperty("user.dir")+"\\logTestcaseFolder\\";
 	public static FileWriter myWriter;
 	public static Properties properties;
+	public static boolean testStepStatus=false;
+	public static Scanner readTestStep;
+	public static String xpath;
 }

@@ -1,5 +1,5 @@
 {
 	"environment":"chrome",
-	"headless":"true",
+	"headless":"false",
 	"URL":"http://automationpractice.com/index.php"
 }

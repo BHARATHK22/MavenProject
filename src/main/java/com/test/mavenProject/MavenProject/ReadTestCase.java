@@ -11,14 +11,14 @@ public class ReadTestCase extends Generic{
 	public static void readTest(String testCase) {
 
 		
-		Scanner sc;
+		
 		try {
-			sc = new Scanner(new File(inputfolder+"\\"+testCase+".csv"));
+			readTestStep = new Scanner(new File(inputfolder+"\\"+testCase+".csv"));
 
-			while (sc.hasNextLine()) 
+			while (readTestStep.hasNextLine()) 
 			{
 				
-				String line=sc.nextLine();
+				String line=readTestStep.nextLine();
 				//System.out.println("Line::"+line);
 				if(line.contains("Action")) {
 					continue;
@@ -26,7 +26,7 @@ public class ReadTestCase extends Generic{
 				ActionItem.actionTest(line);
 			}
 			
-			sc.close(); 
+			readTestStep.close(); 
 		} catch (FileNotFoundException e) {
 			System.out.println("Exception is::"+e.getMessage());
 			e.printStackTrace();

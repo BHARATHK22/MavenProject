@@ -1,5 +1,6 @@
 Action,Properties,Subject1,Subject2
-Navigate,testPage,,
+Navigate,testerPage,,
+IsDisplayed,HomePage.HomePage.LoginPage.SignIn,,
 Click,HomePage.HomePage.LoginPage.SignIn,,
 InputData,HomePage.LogInDetails,HomePage.HomePage.json,LogInDetails
 Click,HomePage.SignInButton,,

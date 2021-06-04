@@ -13,14 +13,14 @@ import com.java.mavenProject.GenericPackage.GetProperties;
 
 
 public class TestRunner extends Generic {
-	static Scanner scanner;
+	//static Scanner scanner;
 	public static void main(String[] args) {
 		GetProperties.initializeEnvironment("UiConfig");
 		
 		
 		try {
 			
-			scanner = new Scanner(new File(inputfolder+"\\TestRunner.csv"));
+			readTestCase = new Scanner(new File(inputfolder+"\\TestRunner.csv"));
 			File file = new File(logTestcaseFolder+"logTestCaseFile.properties");
 	          
 	        if(file.exists())
@@ -34,16 +34,16 @@ public class TestRunner extends Generic {
 	        }
 			properties = new Properties();
 			int count=0;
-			while (scanner.hasNextLine()) // returns a boolean value
+			while (readTestCase.hasNextLine()) // returns a boolean value
 			{
 				
-				testCase= scanner.nextLine();
+				testCase= readTestCase.nextLine();
 				randomTestCaseName = testCase+"_"+GenericFunctions.randomNumber();
 				GenericFunctions.runTestCase(testCase);
 				properties.put(testCase, randomTestCaseName); 
 				count++;
 			}
-			scanner.close();
+			readTestCase.close();
 			FileOutputStream outputStream = new FileOutputStream(logTestcaseFolder+"logTestCaseFile.properties");
 			properties.store(outputStream, null);
 			//properties.c

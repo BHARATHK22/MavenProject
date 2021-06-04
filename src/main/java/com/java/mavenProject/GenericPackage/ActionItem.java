@@ -13,35 +13,53 @@ import com.java.mavenProject.ReportModule.HTMLReport;
 
 public class ActionItem extends Generic {
 
-	public static void actionTest(String actionItem) {
+  public static void actionTest(String actionItem) {
 		System.out.println(actionItem);
 		String[] line = actionItem.split(",");
 		System.out.println("Action ::" + line[0]);
-		String xpath = null;
+		
 
-		switch (CMD.valueOf(line[0])) {
+	switch (CMD.valueOf(line[0])) {
 
 		case Click:
+			
 			System.out.println("*************Start of Click*****************");
-			// System.out.println("Clicked");
-			xpath = ReadData.readWebElement(line[1]);
-
-			if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
-				System.out.println("WebElement Found::");
-				driver.findElement(By.xpath(xpath)).click();
+			testStepStatus=GenericFunctions.clickElement(line[1]);
+			if(testStepStatus==true) {
+				
+				System.out.println("WebElement is clicked::");
 				HTMLReport.testReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-			} else {
-				System.out.println("WebElement NOT  Found::");
-				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
+			}
+			else if(testStepStatus==false) {
+				
+				System.out.println("WebElement is not clickable::");
+				HTMLReport.testReport(line[0], line[1], "FAILS", GenericFunctions.screeshot(driver));
 				HTMLReport.closeReport();
-				driver.quit();
+				readTestStep.close();
 			}
 			System.out.println("*************End of Click*****************");
+			
 			break;
 
 		case InputData:
-			// System.out.println("InputData");
-			System.out.println("*************Start of InputData*****************");
+			
+			System.out.println("*************Start of Input*****************");
+			testStepStatus=GenericFunctions.inputTxtData(line[1],line[2],line[3]);
+			
+			if(testStepStatus==true) {
+				
+				System.out.println("InputData is entered::");
+				HTMLReport.testReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
+			}
+			else if(testStepStatus==false) {
+				
+				System.out.println("InputData is not entered::");
+				HTMLReport.testReport(line[0], line[1], "FAILS", GenericFunctions.screeshot(driver));
+				HTMLReport.closeReport();
+				readTestStep.close();
+			}
+			System.out.println("*************End of Input*****************");
+			/*System.out.println("*************Start of InputData*****************");
 			HashMap<String, String> hashMap = ReadData.readWebElementValue(line[2], line[3]);
 			System.out.println("hashMap::" + hashMap.toString());
 			System.out.println("*************End of InputData*****************");
@@ -71,7 +89,8 @@ public class ActionItem extends Generic {
 					System.out.println("WebElement NOT  Found::");
 					HTMLReport.testReport(line[0], line[1] + line[2] + line[3], "FAIL",GenericFunctions.screeshot(driver));
 					HTMLReport.closeReport();
-					driver.quit();
+					//driver.quit();
+					readTestStep.close();
 				}
 				list=null;
 				Thread.sleep(3000);
@@ -79,9 +98,10 @@ public class ActionItem extends Generic {
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
+			*/
 			break;
 		case Navigate:
-			// System.out.println("Navigate");
+			
 			if (hm.get("environment").equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver", driversPath + "\\chromedriver.exe");
 				if(hm.get("headless").equalsIgnoreCase("true")) {
@@ -96,41 +116,49 @@ public class ActionItem extends Generic {
 			if (hm.get("environment").equalsIgnoreCase("firefox")) {
 				System.out.println("firefox not available");
 			}
-			driver.manage().window().maximize();
-			driver.get(hm.get("URL"));
-			String url = driver.getCurrentUrl();
-			boolean flag = url.contentEquals(hm.get("URL"));
-			if (flag == true) {
-				HTMLReport.testReport(line[0], url, "PASS", GenericFunctions.screeshot(driver));
-			} else {
-				System.out.println("WebElement NOT  Found::");
-				HTMLReport.testReport(line[0], url, "FAIL", GenericFunctions.screeshot(driver));
-				HTMLReport.closeReport();
-				driver.quit();
-			}
-			break;
-		case IsDisplayed:
-			System.out.println("*************Start of IsDisplayed*****************");
-			// System.out.println("Clicked");
-			xpath = ReadData.readWebElement(line[1]);
-
-			if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
-				System.out.println("WebElement Found::");
+			
+			testStepStatus=GenericFunctions.navigateToUrl(line[1]);
+			if(testStepStatus==true){
+				
+				System.out.println("Navigate to url::"+line[1]);
 				HTMLReport.testReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-			} else {
-				System.out.println("WebElement NOT  Found::");
+			}
+			else if(testStepStatus==false) {
+				
+				System.out.println("Navigate function failed::"+line[1]);
 				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
 				HTMLReport.closeReport();
-				driver.quit();
+				readTestStep.close();
 			}
+			break;
+			
+		case IsDisplayed:
+			
+			System.out.println("*************Start of IsDisplayed*****************");
+			testStepStatus=GenericFunctions.isDisplayed(line[1]);
+			
+			
+			if(testStepStatus==true) {
+				
+				System.out.println("WebElement Found::");
+				HTMLReport.testReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
+			}
+			else if(testStepStatus==false) {
+				
+				System.out.println("WebElement Not Found::");
+				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
+				HTMLReport.closeReport();
+				readTestStep.close();
+			}
+			
 			System.out.println("*************End of IsDisplayed*****************");
-
 			break;
 
 		case Quit:
 			driver.close();
 			HTMLReport.testReport(line[0], "", "PASS", "");
 			break;
+			
 		default:
 			System.out.println("Incorrect input keyword proived");
 			break;
