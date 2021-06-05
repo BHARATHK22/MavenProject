@@ -71,7 +71,7 @@ public class GenericFunctions extends Generic {
 	
 	public static boolean navigateToUrl(String actionItem) {
 		
-		testStepStatus= false;
+		//testStepStatus= false;
 		driver.manage().window().maximize();
 		driver.get(hm.get("URL"));
 		String url = driver.getCurrentUrl();
@@ -91,13 +91,18 @@ public class GenericFunctions extends Generic {
 			
 		testStepStatus=false;
 		xpath = ReadData.readWebElement(webElement);
-		if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
-		
-			testStepStatus=true;
-		} 
-		else {
+		try {
+			if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
 			
-			testStepStatus=false;
+				testStepStatus=true;
+			} 
+			else {
+				
+				testStepStatus=false;
+			}
+		}
+		catch(Exception e) {
+			e.getStackTrace();
 		}
 		return testStepStatus;
 	}

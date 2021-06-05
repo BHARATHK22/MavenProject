@@ -17,7 +17,11 @@ public class ReadTestCase extends Generic{
 
 			while (readTestStep.hasNextLine()) 
 			{
-				
+				if(testStepStatus==false) {
+					driver.quit();
+					testStepStatus=true;
+					break;
+				}
 				String line=readTestStep.nextLine();
 				//System.out.println("Line::"+line);
 				if(line.contains("Action")) {
@@ -26,7 +30,9 @@ public class ReadTestCase extends Generic{
 				ActionItem.actionTest(line);
 			}
 			
-			readTestStep.close(); 
+			//if(testStepStatus==true) {
+				readTestStep.close(); 
+			//}
 		} catch (FileNotFoundException e) {
 			System.out.println("Exception is::"+e.getMessage());
 			e.printStackTrace();

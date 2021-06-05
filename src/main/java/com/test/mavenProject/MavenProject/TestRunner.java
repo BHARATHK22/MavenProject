@@ -39,6 +39,7 @@ public class TestRunner extends Generic {
 				
 				testCase= readTestCase.nextLine();
 				randomTestCaseName = testCase+"_"+GenericFunctions.randomNumber();
+				System.out.println("randomTestCaseName-->"+randomTestCaseName);
 				GenericFunctions.runTestCase(testCase);
 				properties.put(testCase, randomTestCaseName); 
 				count++;

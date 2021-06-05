@@ -8,7 +8,7 @@ import com.java.mavenProject.GenericPackage.Generic;
 
 public class ReadCSV extends Generic {
 
-	public static void main(String[] args) {
+	public static void ddmain(String[] args) {
 
 		// parsing a CSV file into Scanner class constructor
 		Scanner sc;

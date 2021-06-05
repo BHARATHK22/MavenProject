@@ -17,7 +17,7 @@ public class MainDriver2 extends Generic {
 
 
 	@SuppressWarnings("unchecked")
-	public static void main(String[] args) {
+	public static void ddmain(String[] args) {
 
 		root = targetData.split("\\.");
 		System.out.println("Array size==" + root.length);

@@ -6,5 +6,5 @@
 	},
 	"LogInDetails":"//h3[contains(text(),'Already registered?')]/following-sibling::div[contains(@class,'form_content clearfix')]//input[@class='is_required validate account_input form-control']",
 	"SignInButton":"//button[@id='SubmitLogin']",
-	"MyAccount":"//h1[contains(text(),'My account')]"
+	"MyAccount":"//h1[contains(text(),'My account1')]"
 }   	

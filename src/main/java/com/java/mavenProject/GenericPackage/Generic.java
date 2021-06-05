@@ -38,7 +38,7 @@ public class Generic {
 	public static String logTestcaseFolder=System.getProperty("user.dir")+"\\logTestcaseFolder\\";
 	public static FileWriter myWriter;
 	public static Properties properties;
-	public static boolean testStepStatus=false;
+	public static boolean testStepStatus=true;
 	public static Scanner readTestStep;
 	public static String xpath;
 }

@@ -34,7 +34,7 @@ public class ActionItem extends Generic {
 				
 				System.out.println("WebElement is not clickable::");
 				HTMLReport.testReport(line[0], line[1], "FAILS", GenericFunctions.screeshot(driver));
-				HTMLReport.closeReport();
+				//HTMLReport.closeReport();
 				readTestStep.close();
 			}
 			System.out.println("*************End of Click*****************");
@@ -55,7 +55,7 @@ public class ActionItem extends Generic {
 				
 				System.out.println("InputData is not entered::");
 				HTMLReport.testReport(line[0], line[1], "FAILS", GenericFunctions.screeshot(driver));
-				HTMLReport.closeReport();
+				//HTMLReport.closeReport();
 				readTestStep.close();
 			}
 			System.out.println("*************End of Input*****************");
@@ -101,7 +101,7 @@ public class ActionItem extends Generic {
 			*/
 			break;
 		case Navigate:
-			
+			System.out.println("*************START*************");
 			if (hm.get("environment").equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver", driversPath + "\\chromedriver.exe");
 				if(hm.get("headless").equalsIgnoreCase("true")) {
@@ -127,7 +127,7 @@ public class ActionItem extends Generic {
 				
 				System.out.println("Navigate function failed::"+line[1]);
 				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
-				HTMLReport.closeReport();
+				//HTMLReport.closeReport();
 				readTestStep.close();
 			}
 			break;
@@ -147,8 +147,8 @@ public class ActionItem extends Generic {
 				
 				System.out.println("WebElement Not Found::");
 				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
-				HTMLReport.closeReport();
-				readTestStep.close();
+				//HTMLReport.closeReport();
+				//readTestStep.close();
 			}
 			
 			System.out.println("*************End of IsDisplayed*****************");
