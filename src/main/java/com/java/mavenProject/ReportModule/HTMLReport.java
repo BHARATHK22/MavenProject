@@ -12,8 +12,37 @@ public class HTMLReport extends Generic {
 
 	public static void initialize() {
 		try {
-			bw.write("<html><body>");
+			bw.write("<html>");
+			bw.write("<h2><center>Project Automation Test Reports</center></h2>");
 			bw.write("<style>table, th, td {border: 1px solid black;border-collapse: collapse;}</style>");
+			bw.write("<style>\r\n"
+					+ ".collapsible {\r\n"
+					+ "  background-color: #777;\r\n"
+					+ "  color: white;\r\n"
+					+ "  cursor: pointer;\r\n"
+					+ "  padding: 18px;\r\n"
+					+ "  width: 100%;\r\n"
+					+ "  border: none;\r\n"
+					+ "  text-align: left;\r\n"
+					+ "  outline: none;\r\n"
+					+ "  font-size: 15px;\r\n"
+					+ "}\r\n"
+					+ "\r\n"
+					+ ".active, .collapsible:hover {\r\n"
+					+ "  background-color: #555;\r\n"
+					+ "}\r\n"
+					+ "\r\n"
+					+ ".content {\r\n"
+					+ "  padding: 0 18px;\r\n"
+					+ "  max-height: 0;\r\n"
+					+ "  overflow: hidden;\r\n"
+					+ "  transition: max-height 0.2s ease-out;\r\n"
+					+ "  background-color: #f1f1f1;\r\n"
+					+ "}\r\n"
+					+ "</style>");
+			bw.write("<body>");
+			bw.write("<button class=\"collapsible\"><Center>"+testCase+"</Center></button>");
+			bw.write("<div class=\"content\">");
 			bw.write("<table style=\"width:100%\"><tr><th>Action-Event</th><th>Properties</th><th>Result</th><th>Screenshot</th></tr>");
 			
 		} catch (IOException e) {
@@ -50,7 +79,26 @@ public class HTMLReport extends Generic {
 		try {
 			
 			bw.write("</table>");
-			bw.write("</body></html>");
+			bw.write("</div>");
+			bw.write("<script>\r\n"
+					+ "var coll = document.getElementsByClassName(\"collapsible\");\r\n"
+					+ "var i;\r\n"
+					+ "\r\n"
+					+ "for (i = 0; i < coll.length; i++) {\r\n"
+					+ "  coll[i].addEventListener(\"click\", function() {\r\n"
+					+ "    this.classList.toggle(\"active\");\r\n"
+					+ "    var content = this.nextElementSibling;\r\n"
+					+ "    if (content.style.maxHeight){\r\n"
+					+ "      content.style.maxHeight = null;\r\n"
+					+ "    } else {\r\n"
+					+ "      content.style.maxHeight = content.scrollHeight + \"px\";\r\n"
+					+ "    } \r\n"
+					+ "  });\r\n"
+					+ "}\r\n"
+					+ "</script>\r\n"
+					+ "");
+			bw.write("</body>");
+			bw.write("</html>");
 			bw.close();
 			
 			/*String filepath = screenshotPath;
