@@ -70,5 +70,6 @@ pipeline {
              subject: "Project Report Success: ${currentBuild.fullDisplayName}",
              body: "Please find the report here ${env.BUILD_URL}",
     	}
+    	}
     }  	
 }
