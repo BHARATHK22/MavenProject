@@ -68,8 +68,8 @@ pipeline {
     	success {
         	 mail to: 'bharathkalapakuri@gmail.com',
              subject: "Project Report Success: ${currentBuild.fullDisplayName}",
-             body: "Please find the report here ${env.BUILD_URL}",
              emailext attachmentsPattern: 'E:\\eclipse-workspace\\MavenProject\\Report\\MAV-2_1623229401256.html',
+             body: "Please find the report here ${env.BUILD_URL}",
     	}
     }  	
 }
