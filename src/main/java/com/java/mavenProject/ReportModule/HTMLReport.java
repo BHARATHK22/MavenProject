@@ -13,7 +13,7 @@ public class HTMLReport extends Generic {
 	public static void initialize() {
 		try {
 			bw.write("<html>");
-			bw.write("<h2><center>Project Automation Test Reports</center></h2>");
+			bw.write("<h2><center>Test Case Automation Report</center></h2>");
 			bw.write("<style>table, th, td {border: 1px solid black;border-collapse: collapse;}</style>");
 			bw.write("<style>\r\n"
 					+ ".collapsible {\r\n"
@@ -101,14 +101,7 @@ public class HTMLReport extends Generic {
 			bw.write("</html>");
 			bw.close();
 			
-			/*String filepath = screenshotPath;
-	        File file = new File(filepath);
-
-	        deleteDirectory(file);
-	        
-	        
-	        file.delete();
-	       */
+			
 		} catch (IOException e) {
 			
 			e.printStackTrace();

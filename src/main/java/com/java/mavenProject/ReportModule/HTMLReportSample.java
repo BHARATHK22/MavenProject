@@ -10,7 +10,8 @@ import com.java.mavenProject.GenericPackage.*;
 class HTMLReportSample extends Generic {
 
     public static void main(String arg[]) {//(String Statement,String flag,String Screeshot) throws Exception {
-    	long source = System.currentTimeMillis(); 
+    	long source = System.currentTimeMillis();
+    	String str ="<p>A BHARATH BHAARTHCollapsible:</p>";
         File f = new File(currentDirectory+"\\Report\\"+source+".html");
          //bw = null;
 		try {
@@ -50,9 +51,10 @@ class HTMLReportSample extends Generic {
 					+ "<body>\r\n"
 					+ "\r\n"
 					+ "<h2>Animated Collapsibles</h2>\r\n"
-					+ "\r\n"
-					+ "<p>A Collapsible:</p>\r\n"
-					+ "<button class=\"collapsible\">Open Collapsible</button>\r\n"
+					+ "\r\n");
+			
+			bw.write(str);
+			bw.write("<button class=\"collapsible\">Open Collapsible</button>\r\n"
 					+ "<div class=\"content\">\r\n"
 					+ "  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\r\n"
 					+ "</div>\r\n"

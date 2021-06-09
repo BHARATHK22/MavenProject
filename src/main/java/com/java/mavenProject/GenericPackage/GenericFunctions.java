@@ -22,7 +22,7 @@ import com.test.mavenProject.MavenProject.ReadTestCase;
 
 public class GenericFunctions extends Generic {
 
-	
+	static boolean status=true;
 	public static String screeshot(WebDriver driver) {
 
 		//long randomNumber = System.currentTimeMillis();
@@ -42,7 +42,7 @@ public class GenericFunctions extends Generic {
 
 	}
 	
-	public static void runTestCase(String testCase) {
+	public static boolean runTestCase(String testCase) {
 		
 		
 
@@ -52,10 +52,10 @@ public class GenericFunctions extends Generic {
 		bw = new BufferedWriter(new FileWriter(HtmlReportFile));
 		
 		
-		System.out.println("Started executing Test Case::"+testCase);
+		System.out.println("***Started executing Test Case::"+testCase+"***");
 		HTMLReport.initialize();
-		ReadTestCase.readTest(testCase);
-		System.out.println("Finished executing Test Case::"+testCase);
+		status=ReadTestCase.readTestCase(testCase);
+		System.out.println("***Finished executing Test Case::"+testCase+" status=="+status+"***");
 		HTMLReport.closeReport();
 		bw.close();
 		//saveTestReportFileName();
@@ -63,6 +63,7 @@ public class GenericFunctions extends Generic {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return status;
 	}
 	public static long randomNumber(){
 		return System.currentTimeMillis();

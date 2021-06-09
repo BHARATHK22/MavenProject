@@ -8,9 +8,9 @@ import com.java.mavenProject.GenericPackage.ActionItem;
 import com.java.mavenProject.GenericPackage.Generic;
 
 public class ReadTestCase extends Generic{
-	public static void readTest(String testCase) {
+	public static boolean readTestCase(String testCase) {
 
-		
+		testStepStatus=true;
 		
 		try {
 			readTestStep = new Scanner(new File(inputfolder+"\\"+testCase+".csv"));
@@ -19,7 +19,8 @@ public class ReadTestCase extends Generic{
 			{
 				if(testStepStatus==false) {
 					driver.quit();
-					testStepStatus=true;
+					System.out.println("ReadTestCase is stopped running current step since previous step is failed::");
+					//testStepStatus=true;
 					break;
 				}
 				String line=readTestStep.nextLine();
@@ -33,10 +34,12 @@ public class ReadTestCase extends Generic{
 			//if(testStepStatus==true) {
 				readTestStep.close(); 
 			//}
+				
 		} catch (FileNotFoundException e) {
 			System.out.println("Exception is::"+e.getMessage());
 			e.printStackTrace();
 		}
+		return testStepStatus;
 	}
 
 }

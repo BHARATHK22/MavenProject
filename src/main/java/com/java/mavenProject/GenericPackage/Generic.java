@@ -27,7 +27,9 @@ public class Generic {
 	public static HashMap<String, String> hm = new HashMap<String, String>();
 	public static long randomNumber;
 	public static File HtmlReportFile; 
-	public static  BufferedWriter bw;
+	public static File HtmlTestReportFile;
+	public static BufferedWriter bw;
+	public static BufferedWriter recordReportBuffer;
 	public static String targetKey;
 	public static boolean status=false;
 	public static HashMap<String,String> childSetValue=null;
@@ -41,4 +43,12 @@ public class Generic {
 	public static boolean testStepStatus=true;
 	public static Scanner readTestStep;
 	public static String xpath;
+	public static File TestReportFile;
+	public static  BufferedWriter testResultbuffer;
+	public static String setColor="green";
+	public static boolean testCaseStatus=true;
+	public static String recordTestStep="";
+	public static String appendPassedTestReport;
+	public static String appendFailedTestReport;
 }
+

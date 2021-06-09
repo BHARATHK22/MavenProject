@@ -1,8 +1,10 @@
 package com.test.mavenProject.MavenProject;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
@@ -10,6 +12,8 @@ import java.util.Scanner;
 import com.java.mavenProject.GenericPackage.Generic;
 import com.java.mavenProject.GenericPackage.GenericFunctions;
 import com.java.mavenProject.GenericPackage.GetProperties;
+import com.java.mavenProject.ReportModule.TEST_RESULT;
+import com.java.mavenProject.ReportModule.TEST_RESULT_testRunner;
 
 
 public class TestRunner extends Generic {
@@ -19,7 +23,9 @@ public class TestRunner extends Generic {
 		
 		
 		try {
-			
+			//TestReportFile = new File(htmlReportPath+"TEST_RESULT_"+GenericFunctions.randomNumber()+".html");
+			//testResultbuffer = new BufferedWriter(new FileWriter(TestReportFile));
+			TEST_RESULT_testRunner.initTestCaseReportFile();
 			readTestCase = new Scanner(new File(inputfolder+"\\TestRunner.csv"));
 			File file = new File(logTestcaseFolder+"logTestCaseFile.properties");
 	          
@@ -33,18 +39,36 @@ public class TestRunner extends Generic {
 	            System.out.println("Failed to delete the file");
 	        }
 			properties = new Properties();
-			int count=0;
+			int count=-1;
+			//TEST_RESULT.createFileReport();
 			while (readTestCase.hasNextLine()) // returns a boolean value
 			{
-				
+				//testCaseStatus=true;
+				System.out.println("******testCaseStatus-->"+testCaseStatus);
 				testCase= readTestCase.nextLine();
+				//TEST_RESULT.createTestCaseReport();
 				randomTestCaseName = testCase+"_"+GenericFunctions.randomNumber();
 				System.out.println("randomTestCaseName-->"+randomTestCaseName);
-				GenericFunctions.runTestCase(testCase);
-				properties.put(testCase, randomTestCaseName); 
+				testCaseStatus=GenericFunctions.runTestCase(testCase);
+//				if(testCaseStatus==false) {
+//					System.out.println("TestCase Failed, Please investigate::");
+//					TEST_RESULT_testRunner.appendButtonDiv();
+//				}
+//				if(testCaseStatus==true) {
+//					System.out.println("TestCase Passed @TestRunner.Java::");
+//					TEST_RESULT_testRunner.appendButtonDiv();
+//				}
+				properties.put(testCase, randomTestCaseName);
+				TEST_RESULT_testRunner.appendButtonDiv();
 				count++;
+				setColor="green";
 			}
-			readTestCase.close();
+			if(count==0) {
+				System.out.println("Only one test case is available to run-->"+count);
+				readTestCase.close();
+			}	
+			//TEST_RESULT.closeFileReport();
+			 TEST_RESULT_testRunner.closeTestReportFile();
 			FileOutputStream outputStream = new FileOutputStream(logTestcaseFolder+"logTestCaseFile.properties");
 			properties.store(outputStream, null);
 			//properties.c
