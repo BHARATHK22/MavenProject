@@ -59,8 +59,13 @@ pipeline {
         }
      } 
      post {
-        always {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
+        //always {
+          //  emailext body: 'A Test EMail', recipientProviders: [[$class: 'RequesterRecipientProvider']], subject: 'Test'
+        //}
+        failure {
+        	 mail to: 'bharathkalapakuri@gmail.com',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
+    	}
     }  	
 }
