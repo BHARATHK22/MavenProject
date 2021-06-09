@@ -17,6 +17,11 @@ pipeline {
                 sh "mvn exec:java"
             }
         }
+        stage('mvn Testproject') {
+            steps {
+                sh "mvn test"
+            }
+        }
     
         stage('Jira project') {
             steps {
