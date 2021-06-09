@@ -66,7 +66,6 @@ pipeline {
     	success {
         	 mail to: 'bharathkalapakuri@gmail.com',
              subject: "Project Report Success: ${currentBuild.fullDisplayName}",
-             emailext attachLog: true,
              body: "Please find the report here ${env.BUILD_URL}"
     	}
     }  	
