@@ -1,5 +1,3 @@
-
-
 pipeline {
     agent any
     environment{
@@ -68,8 +66,7 @@ pipeline {
     	success {
         	 mail to: 'bharathkalapakuri@gmail.com',
              subject: "Project Report Success: ${currentBuild.fullDisplayName}",
-             body: "Please find the report here ${env.BUILD_URL}",
-    	}
+             body: "Please find the report here ${env.BUILD_URL}"
     	}
     }  	
 }
