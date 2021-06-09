@@ -5,8 +5,13 @@ import org.testng.annotations.Test;
 
 public class ApiTest {
 @Test
-public void testMethod() {
-	System.out.println("FaileTest");
-	Assert.assertTrue(false);
+public void testPassMethod() {
+	System.out.println("Pass Test");
+	Assert.assertTrue(true);
+}
+@Test
+public void testFailMethod() {
+	System.out.println("Fail Test");
+	Assert.assertTrue(true);
 }
 }
