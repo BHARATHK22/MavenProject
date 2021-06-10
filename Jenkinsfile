@@ -68,5 +68,11 @@ pipeline {
              subject: "Project Report Success: ${currentBuild.fullDisplayName}",
              body: "Please find the report here ${env.BUILD_URL}"
     	}
+    	always{
+    		   emailext (to: 'bharathkalapakuri@gmail.com', replyTo: 'bharathkalapakuri@gmail.com', 
+    		   subject: "Email Report from - '${env.JOB_NAME}' ", 
+    		   body: readFile("E:\eclipse-workspace\MavenProject\target\surefire-reports\emailable-report.html"), 
+    		   mimeType: 'text/html');
+    		  }	
     }  	
 }
