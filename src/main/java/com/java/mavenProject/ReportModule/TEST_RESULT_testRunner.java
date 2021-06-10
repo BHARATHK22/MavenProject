@@ -15,7 +15,16 @@ public class TEST_RESULT_testRunner extends Generic {
 	public static void initTestCaseReportFile() {
 		try {
 			
-			HtmlTestReportFile = new File(htmlReportPath+"TEST_RESULT_testRunner"+GenericFunctions.randomNumber()+ ".html");
+			HtmlTestReportFile = new File(completeTestReportPath+"TEST_RESULT_testRunner"+".html");
+			if(HtmlTestReportFile.exists())
+	        {
+				HtmlTestReportFile.delete();
+	            System.out.println("completeTestReportPath file deleted successfully");
+	        }
+	        else
+	        {
+	            System.out.println("completeTestReportPath failed to delete the file");
+	        }
 			recordReportBuffer = new BufferedWriter(new FileWriter(HtmlTestReportFile));
 			recordReportBuffer.write("<html>");
 			recordReportBuffer.write("<head>");
