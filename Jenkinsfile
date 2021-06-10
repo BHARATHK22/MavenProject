@@ -23,7 +23,7 @@ pipeline {
     	stage('Testing') {
             steps{
                bat "del test.zip"
-               zip zipFile: 'test.zip', archive: false, dir: "E:\\eclipse-workspace\\MavenProject\\logTestcaseFolder"
+               zip zipFile: 'test.zip', archive: false, dir: "${WORKSPACE}/Report"
             }
         }
         stage('Jira project') {
