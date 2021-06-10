@@ -70,10 +70,9 @@ pipeline {
     	}
     	always{
     		  steps{ 
-    		  		emailext (to: 'bharathkalapakuri@gmail.com', replyTo: 'bharathkalapakuri@gmail.com', 
-    		   		subject: "Email Report from - '${env.JOB_NAME}' ", 
-    		   		body: readFile("E:\eclipse-workspace\MavenProject\target\surefire-reports\emailable-report.html"), 
-    		   		mimeType: 'text/html');
+    		  		emailext attachmentsPattern: 'E:\eclipse-workspace\MavenProject\target\surefire-reports\emailable-report.html', body: '''${SCRIPT, template="groovy-html.template"}''', 
+                    subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
+                    mimeType: 'text/html',to: "bharathkalapakuri@gmail.com"
     		   		}
     		  }	
     }  	
