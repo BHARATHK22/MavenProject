@@ -51,5 +51,6 @@ public class Generic {
 	public static String appendPassedTestReport;
 	public static String appendFailedTestReport;
 	public static String completeTestReportPath=htmlReportPath+"TEST_REPORT//";
+	public static String screenShot;
 }
 

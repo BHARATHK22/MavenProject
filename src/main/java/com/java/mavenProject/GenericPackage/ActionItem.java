@@ -21,19 +21,18 @@ public class ActionItem extends Generic {
 			
 			System.out.println("*************Start of Click*****************");
 			testStepStatus=GenericFunctions.clickElement(line[1]);
+			screenShot=GenericFunctions.screeshot(driver);
 			if(testStepStatus==true) {
 				
 				System.out.println("WebElement is clicked::");
-				HTMLReport.testReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-				//TEST_RESULT.testStepReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
+				HTMLReport.testReport(line[0], line[1], "PASS", screenShot);
+				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "PASS", screenShot);
 			}
 			else if(testStepStatus==false) {
 				setColor="red";
 				System.out.println("WebElement is not clickable::");
-				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
-				//TEST_RESULT.testStepReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
-				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
+				HTMLReport.testReport(line[0], line[1], "FAIL", screenShot);
+				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "FAIL", screenShot);
 				readTestStep.close();
 			}
 			System.out.println("*************End of Click*****************");
@@ -44,20 +43,18 @@ public class ActionItem extends Generic {
 			
 			System.out.println("*************Start of Input*****************");
 			testStepStatus=GenericFunctions.inputTxtData(line[1],line[2],line[3]);
-			
+			screenShot=GenericFunctions.screeshot(driver);
 			if(testStepStatus==true) {
 				
 				System.out.println("InputData is entered::");
-				HTMLReport.testReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-				//TEST_RESULT.testStepReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
+				HTMLReport.testReport(line[0], line[1], "PASS", screenShot);
+				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "PASS", screenShot);
 			}
 			else if(testStepStatus==false) {
 				setColor="red";
 				System.out.println("InputData is not entered::");
-				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
-				//TEST_RESULT.testStepReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
-				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
+				HTMLReport.testReport(line[0], line[1], "FAIL", screenShot);
+				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "FAIL", screenShot);
 				readTestStep.close();
 			}
 			System.out.println("*************End of Input*****************");
@@ -80,19 +77,18 @@ public class ActionItem extends Generic {
 			}
 			
 			testStepStatus=GenericFunctions.navigateToUrl(line[1]);
+			screenShot=GenericFunctions.screeshot(driver);
 			if(testStepStatus==true){
 				
 				System.out.println("Navigate to url::"+line[1]);
-				HTMLReport.testReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-				//TEST_RESULT.testStepReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
+				HTMLReport.testReport(line[0], line[1], "PASS", screenShot);
+				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "PASS", screenShot);
 			}
 			else if(testStepStatus==false) {
 				setColor="red";
 				System.out.println("Navigate function failed::"+line[1]);
-				HTMLReport.testReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
-				//TEST_RESULT.testStepReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
-				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
+				HTMLReport.testReport(line[0], line[1], "FAIL", screenShot);
+				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "FAIL", screenShot);
 				readTestStep.close();
 			}
 			break;
@@ -101,21 +97,19 @@ public class ActionItem extends Generic {
 			
 			System.out.println("*************Start of IsDisplayed*****************");
 			testStepStatus=GenericFunctions.isDisplayed(line[1]);
-			
+			screenShot=GenericFunctions.screeshot(driver);
 			
 			if(testStepStatus==true) {
 				
 				System.out.println("WebElement Found::");
 				HTMLReport.testReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-				//TEST_RESULT.testStepReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
-				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "PASS", GenericFunctions.screeshot(driver));
+				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "PASS", screenShot);
 			}
 			else if(testStepStatus==false) {
 				setColor="red";
 				System.out.println("WebElement Not Found::");
 				HTMLReport.testReport(line[0], line[1]+"\tWebElement Not Found", "FAIL", GenericFunctions.screeshot(driver));
-				//TEST_RESULT.testStepReport(line[0], line[1]+"\tWebElement Not Found", "FAIL", GenericFunctions.screeshot(driver));
-				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "FAIL", GenericFunctions.screeshot(driver));
+				TEST_RESULT_testRunner.eachTestStepReport(line[0], line[1], "FAIL", screenShot);
 			}
 			
 			System.out.println("*************End of IsDisplayed*****************");
