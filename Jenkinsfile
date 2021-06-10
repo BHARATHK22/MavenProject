@@ -74,11 +74,10 @@ pipeline {
              body: "Please find the report here ${env.BUILD_URL}"
     	}
     	always{
-    		  steps{ 
     		  		emailext attachmentsPattern: 'test.zip', body: '''${SCRIPT, template="groovy-html.template"}''', 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html',to: "bharathkalapakuri@gmail.com"
-    		   		}
+    		   		
     		  }	
     }  	
 }
