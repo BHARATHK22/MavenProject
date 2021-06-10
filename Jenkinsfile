@@ -69,7 +69,7 @@ pipeline {
              		body: "Something is wrong with ${env.BUILD_URL}"
     			}
     	success {
-        	 		emailext attachmentsPattern: 'test.zip', body: '''${SCRIPT, template="groovy-html.template"}''', 
+        	 		emailext attachmentsPattern: 'TEST_RESULT.zip', body: '''${SCRIPT, template="groovy-html.template"}''', 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html', to: "bharathkalapakuri@gmail.com"	
     		  }	
