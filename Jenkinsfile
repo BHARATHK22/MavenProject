@@ -20,7 +20,12 @@ pipeline {
                 sh "mvn test"
             }
         }
-    
+    	stage('Testing') {
+            steps{
+               bat "del test.zip"
+               zip zipFile: 'test.zip', archive: false, dir: "${WORKSPACE}/logTestcaseFolder/logTestCaseFile.properties"
+            }
+        }
         stage('Jira project') {
             steps {
                script { 
@@ -70,7 +75,7 @@ pipeline {
     	}
     	always{
     		  steps{ 
-    		  		emailext attachmentsPattern: "E://eclipse-workspace//MavenProject//target//surefire-reports//emailable-report.html", body: '''${SCRIPT, template="groovy-html.template"}''', 
+    		  		emailext attachmentsPattern: 'test.zip', body: '''${SCRIPT, template="groovy-html.template"}''', 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html',to: "bharathkalapakuri@gmail.com"
     		   		}
