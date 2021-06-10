@@ -28,7 +28,7 @@ public class TEST_RESULT_testRunner extends Generic {
 			recordReportBuffer = new BufferedWriter(new FileWriter(HtmlTestReportFile));
 			recordReportBuffer.write("<html>");
 			recordReportBuffer.write("<head>");
-			recordReportBuffer.write("<h2><center>Project Automation Test Reports</center></h2>");
+			recordReportBuffer.write("<div><h2><center>Project Automation Test Reports</center></h2></div>");
 			recordReportBuffer.write("<style>table, th, td {border: 1px solid black;border-collapse: collapse;}</style>");
 			recordReportBuffer.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n"
 					+ "\r\n"
@@ -46,7 +46,7 @@ public class TEST_RESULT_testRunner extends Generic {
 					+ "}\r\n"
 					+ "\r\n"
 					+ ".active, .collapsible:hover {\r\n"
-					+ "  background-color: green;\r\n"
+					+ "  background-color: #777;\r\n"
 					+ "}\r\n"
 					+ "\r\n"
 					+ ".content {\r\n"
@@ -72,7 +72,7 @@ public class TEST_RESULT_testRunner extends Generic {
 					+ "}\r\n"
 					+ "\r\n"
 					+ ".active, .collapsible1:hover {\r\n"
-					+ "  background-color: red;\r\n"
+					+ "  background-color: #777;\r\n"
 					+ "}\r\n"
 					+ "\r\n"
 					+ ".content1 {\r\n"
@@ -85,6 +85,15 @@ public class TEST_RESULT_testRunner extends Generic {
 					+ "\r\n"
 					+ "\r\n"
 					+ "\r\n"
+					+".container {\r\n"
+					+ "  position: relative;\r\n"
+					+ "}"
+					+".topleft {\r\n"
+					+ "  position: absolute;\r\n"
+					+ "  top: 8px;\r\n"
+					+ "  left: 16px;\r\n"
+					+ "  font-size: 18px;\r\n"
+					+ "}"
 					+ "</style>");
 			recordReportBuffer.write("</head>");
 			recordReportBuffer.write("<body>");
@@ -104,6 +113,8 @@ public class TEST_RESULT_testRunner extends Generic {
 				 					 + recordTestStep;
 		if(testStepStatus==true) {
 			try {
+				noOfPassedTests=noOfPassedTests+1;
+				System.out.println("PASSED TEST CASES::"+noOfPassedTests);
 				recordReportBuffer.write(appendPassedTestReport);
 				recordReportBuffer.write("</table>");
 				recordReportBuffer.write("</div>");
@@ -116,6 +127,8 @@ public class TEST_RESULT_testRunner extends Generic {
 		}
 		else if(testStepStatus==false) {
 			try {
+				noOfFailedTests=noOfFailedTests+1;
+				System.out.println("PASSED TEST CASES::"+noOfFailedTests);
 				recordReportBuffer.write(appendFailedTestReport);
 				recordReportBuffer.write("</table>");
 				recordReportBuffer.write("</div>");
@@ -179,9 +192,15 @@ public class TEST_RESULT_testRunner extends Generic {
 						+ "\r\n"
 						+ "\r\n"
 						+ "</script>");
-			recordReportBuffer.write("</body>");
-			recordReportBuffer.write("</html>");
-			recordReportBuffer.close();
+				//recordReportBuffer.write("<div class=\"container\">");
+				//recordReportBuffer.write("<div><h2><center>Project Automation Test Reports</center></h2></div><br>");
+				recordReportBuffer.write("<div class=\"topleft\">No of tests Passed ="+noOfPassedTests+" No of tests Failed = "+noOfFailedTests+"</div>");
+				//recordReportBuffer.write("<div class=\"topleft\">No of tests Passed  ::"+noOfPassedTests+" No of tests Passed="+</div><br>");
+				//recordReportBuffer.write("</div>");
+				//recordReportBuffer.write("<p><div style='float: left;'>No of tests Failed  ::"+noOfFailedTests+"</div></p>");
+				recordReportBuffer.write("</body>");
+				recordReportBuffer.write("</html>");
+				recordReportBuffer.close();
 			
 		}catch(Exception e) {
 			e.printStackTrace();

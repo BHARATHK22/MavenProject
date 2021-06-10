@@ -35,7 +35,7 @@ public class Generic {
 	public static HashMap<String,String> childSetValue=null;
 	public static String testCase=null;
 	public static String htmlReportPath=System.getProperty("user.dir") + "\\Report\\" ;
-	public static String screenshotPath = System.getProperty("user.dir") +"\\Report\\Screnshot\\";
+	public static String screenshotPath = System.getProperty("user.dir") +"\\TEST_REPORT\\Screnshot\\";
 	public static String randomTestCaseName;
 	public static String logTestcaseFolder=System.getProperty("user.dir")+"\\logTestcaseFolder\\";
 	public static FileWriter myWriter;
@@ -52,5 +52,7 @@ public class Generic {
 	public static String appendFailedTestReport;
 	public static String completeTestReportPath=htmlReportPath+"TEST_REPORT//";
 	public static String screenShot;
+	public static int noOfPassedTests=0;
+	public static int noOfFailedTests=0;
 }
 

@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
 
+import org.apache.commons.io.FileUtils;
+
 import com.java.mavenProject.GenericPackage.Generic;
 import com.java.mavenProject.GenericPackage.GenericFunctions;
 import com.java.mavenProject.GenericPackage.GetProperties;
@@ -51,10 +53,12 @@ public class TestRunner extends Generic {
 				System.out.println("randomTestCaseName-->"+randomTestCaseName);
 				testCaseStatus=GenericFunctions.runTestCase(testCase);
 //				if(testCaseStatus==false) {
+//					noOfFailedTests=noOfFailedTests+1;
 //					System.out.println("TestCase Failed, Please investigate::");
 //					TEST_RESULT_testRunner.appendButtonDiv();
 //				}
 //				if(testCaseStatus==true) {
+//					noOfPassedTests=noOfPassedTests+1;
 //					System.out.println("TestCase Passed @TestRunner.Java::");
 //					TEST_RESULT_testRunner.appendButtonDiv();
 //				}
@@ -68,9 +72,11 @@ public class TestRunner extends Generic {
 				readTestCase.close();
 			}	
 			//TEST_RESULT.closeFileReport();
+			 //TEST_RESULT_testRunner.initTestCaseReportFile();
 			 TEST_RESULT_testRunner.closeTestReportFile();
-			FileOutputStream outputStream = new FileOutputStream(logTestcaseFolder+"logTestCaseFile.properties");
-			properties.store(outputStream, null);
+			 FileOutputStream outputStream = new FileOutputStream(logTestcaseFolder+"logTestCaseFile.properties");
+			 properties.store(outputStream, null);
+			//FileUtils.deleteDirectory(new File(screenshotPath));
 			//properties.c
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
