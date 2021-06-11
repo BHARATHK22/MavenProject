@@ -5,7 +5,7 @@ pipeline {
         def readTestCases ="E:\\eclipse-workspace\\MavenProject\\InputFiles\\"
         def testCase=""
         def scriptDir = "getClass().protectionDomain.codeSource.location.path"
-        //def workspace = WORKSPACE
+        def path = WORKSPACE
         
     }
     stages {
@@ -72,7 +72,7 @@ pipeline {
     				emailext attachmentsPattern: 'TEST_RESULT.zip', 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html', 
-                    body: '${FILE,path="${WORKSPACE}//Report//TEST_REPORT//TEST_RESULT_testRunner.html"}',
+                    body: '${FILE,path="${path}//Report//TEST_REPORT//TEST_RESULT_testRunner.html"}',
                     to: "bharathkalapakuri@gmail.com"
     		  }	
     }  	
