@@ -5,7 +5,7 @@ pipeline {
         def readTestCases ="E:\\eclipse-workspace\\MavenProject\\InputFiles\\"
         def testCase=""
         def scriptDir = "getClass().protectionDomain.codeSource.location.path"
-        def path = ${WORKSPACE}
+        def path = "${WORKSPACE}"
         
     }
     stages {
