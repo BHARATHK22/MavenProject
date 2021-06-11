@@ -12,7 +12,6 @@ pipeline {
     
     	stage('Java project') {
             steps {
-            	//println path
                 sh "mvn exec:java"
             }
         }
