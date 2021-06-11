@@ -5,7 +5,7 @@ pipeline {
         def readTestCases ="E:\\eclipse-workspace\\MavenProject\\InputFiles\\"
         def testCase=""
         def scriptDir = "getClass().protectionDomain.codeSource.location.path"
-        def path = "${WORKSPACE}"
+        //def workspace = WORKSPACE
         
     }
     stages {
@@ -69,11 +69,9 @@ pipeline {
              		body: "Something is wrong with ${env.BUILD_URL}"
     			}
     	success {
-    				emailext attachmentsPattern: 'TEST_RESULT.zip', 
+        	 		emailext attachmentsPattern: 'TEST_RESULT.zip', body: '''${SCRIPT, template="groovy-html.template"}''', 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
-                    mimeType: 'text/html', 
-                    body: '${FILE,path="${path}//Report//TEST_REPORT//TEST_RESULT_testRunner.html"}',
-                    to: "bharathkalapakuri@gmail.com"
+                    mimeType: 'text/html', to: "bharathkalapakuri@gmail.com"	
     		  }	
     }  	
 }
