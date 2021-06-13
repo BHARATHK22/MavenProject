@@ -70,8 +70,8 @@ pipeline {
              		body: "Something is wrong with ${env.BUILD_URL}"
     			}
     	success {
-    				def path1 = WORKSPACE
-        	 		emailext attachmentsPattern: 'TEST_RESULT.zip', body: readFile("${path1}\\Report\\TEST_REPORT\\TEST_RESULT_testRunner.html"),
+    				
+        	 		emailext attachmentsPattern: 'TEST_RESULT.zip', body: readFile("${WORKSPACE}\\Report\\TEST_REPORT\\TEST_RESULT_testRunner.html"),
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html', to: "bharathkalapakuri@gmail.com"	
     		  }	
