@@ -15,11 +15,11 @@ pipeline {
                 sh "mvn exec:java"
             }
         }
-        stage('mvn Testproject') {
-            steps {
-                sh "mvn test"
-            }
-        }
+  //      stage('mvn Testproject') {
+  //          steps {
+  //              sh "mvn test"
+  //          }
+  //      }
     	stage('Testing') {
             steps{
                bat "del TEST_RESULT.zip"
