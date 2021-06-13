@@ -71,7 +71,7 @@ pipeline {
     			}
     	success {
     				
-        	 		emailext attachmentsPattern: 'TEST_RESULT.zip', body: readFile("${WORKSPACE}\\Report\\TEST_REPORT\\TEST_RESULT_testRunner.html"),
+        	 		emailext attachmentsPattern: 'TEST_RESULT.zip', body: '''${SCRIPT, template="groovy-html.template"}''',readFile("${WORKSPACE}\\Report\\TEST_REPORT\\TEST_RESULT_testRunner.html"),
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html', to: "bharathkalapakuri@gmail.com"	
     		  }	
