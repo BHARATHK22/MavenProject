@@ -29,7 +29,7 @@ pipeline {
         stage('Jira project') {
             steps {
                script { 
-               	printl "scriptDir"+scriptDir
+               	println "scriptDir"+scriptDir
 				def workspace = WORKSPACE
 				println "Workspace->"+workspace 
 				//println "PATH----->"+path
