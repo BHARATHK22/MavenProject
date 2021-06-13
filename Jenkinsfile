@@ -29,9 +29,10 @@ pipeline {
         stage('Jira project') {
             steps {
                script { 
+               	printl "scriptDir"+scriptDir
 				def workspace = WORKSPACE
 				println "Workspace->"+workspace 
-				println "PATH----->"+path
+				//println "PATH----->"+path
 				def directory = pwd()
 				println "Directory->"+directory
 				
@@ -69,8 +70,8 @@ pipeline {
              		body: "Something is wrong with ${env.BUILD_URL}"
     			}
     	success {
-    				def path = WORKSPACE
-        	 		emailext attachmentsPattern: 'TEST_RESULT.zip', body: readFile("${path}\\Report\\TEST_REPORT\\TEST_RESULT_testRunner.html"),
+    				def path1 = WORKSPACE
+        	 		emailext attachmentsPattern: 'TEST_RESULT.zip', body: readFile("${path1}\\Report\\TEST_REPORT\\TEST_RESULT_testRunner.html"),
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                     mimeType: 'text/html', to: "bharathkalapakuri@gmail.com"	
     		  }	
