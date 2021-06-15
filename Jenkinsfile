@@ -8,6 +8,10 @@ pipeline {
         //def path = "${WORKSPACE}"
         
     }
+    triggers {
+       // poll repo every 2 minute for changes
+       pollSCM('*/2 * * * *')
+      } 
     stages {
     
     	stage('Java project') {
