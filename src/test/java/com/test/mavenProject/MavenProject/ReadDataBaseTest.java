@@ -1,4 +1,4 @@
-package com.test.mavenProject.GenericPackage;
+package com.test.mavenProject.MavenProject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import org.testng.annotations.Test;
 
 
-public class ReadDataBase {
+public class ReadDataBaseTest {
 	@Test
 	public void readDataBaseMethod() {
 		String dataBaseName="Credentials";
