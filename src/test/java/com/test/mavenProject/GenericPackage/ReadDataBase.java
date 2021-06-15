@@ -1,10 +1,12 @@
-package com.java.mavenProject.GenericPackage;
+package com.test.mavenProject.GenericPackage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import org.testng.annotations.Test;
+
 
 public class ReadDataBase {
 	@Test
