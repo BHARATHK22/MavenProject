@@ -11,7 +11,7 @@ pipeline {
     triggers {
        // poll repo every 2 minute for changes
        //pollSCM('*/2 * * * *')
-       properties([pipelineTriggers([cron('H 22 * * *')])])
+       triggers([cron('H 22 * * *')])
       } 
     stages {
     
