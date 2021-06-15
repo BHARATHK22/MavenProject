@@ -11,7 +11,8 @@ pipeline {
     triggers {
        // poll repo every 2 minute for changes
        //pollSCM('*/2 * * * *')
-       triggers([cron('H 22 * * *')])
+       // will trigger build at 10:00 PM every day
+       cron('H 22 * * *')
       } 
     stages {
     
