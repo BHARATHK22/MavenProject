@@ -32,6 +32,4 @@ public class ReadDataBaseTest {
 			System.out.println(ee);}  
 		  
 	}
-	
-
 }
