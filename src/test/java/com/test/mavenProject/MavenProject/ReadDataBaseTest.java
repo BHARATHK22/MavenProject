@@ -29,7 +29,8 @@ public class ReadDataBaseTest {
             }
 		  
 		}catch(Exception ee){
-			System.out.println(ee);}  
+			System.out.println(ee);
+		 }  
 		  
 	}
 }
