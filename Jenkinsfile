@@ -12,34 +12,33 @@ pipeline {
        // poll repo every 2 minute for changes
        //pollSCM('*/2 * * * *')
        // will trigger build at 10:00 PM every day
-       pollSCM('H 23 * * *')
+       pollSCM('H 22 * * *')
       } 
     stages {
     
-    	stage('Java project') {
+    	stage('MVN exec:java') {
             steps {
                 sh "mvn exec:java"
             }
         }
-        stage('build') {
-  			//dir("build_folder"){
+        stage('BAT Exe') {
   			steps {
       			bat "mvnBatFile.bat"
+      			//bat file execution
       		}	
-  			//}
 		}
-        stage('mvn Testproject') {
+        stage('MVN test') {
             steps {
                 sh "mvn test"
             }
         }
-    	stage('Testing') {
+    	stage('REPORT Zip') {
             steps{
                bat "del TEST_RESULT.zip"
                zip zipFile: 'TEST_RESULT.zip', archive: false, dir: "${WORKSPACE}/Report/TEST_REPORT"
             }
         }
-        stage('Jira project') {
+        stage('JIRA Attachment') {
             steps {
                script { 
                	println "scriptDir"+scriptDir
