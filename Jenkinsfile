@@ -21,6 +21,11 @@ pipeline {
                 sh "mvn exec:java"
             }
         }
+        stage('build') {
+  			//dir("build_folder"){
+      		bat "mvnBatFile.bat"
+  			//}
+		}
         stage('mvn Testproject') {
             steps {
                 sh "mvn test"
