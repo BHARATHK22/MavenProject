@@ -23,7 +23,9 @@ pipeline {
         }
         stage('build') {
   			//dir("build_folder"){
-      		bat "mvnBatFile.bat"
+  			steps {
+      			bat "mvnBatFile.bat"
+      		}	
   			//}
 		}
         stage('mvn Testproject') {
