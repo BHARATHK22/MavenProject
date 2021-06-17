@@ -17,8 +17,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.java.mavenProject.MavenProject.ReadTestCase;
 import com.java.mavenProject.ReportModule.HTMLReport;
-import com.test.mavenProject.MavenProject.ReadTestCase;
 
 public class GenericFunctions extends Generic {
 

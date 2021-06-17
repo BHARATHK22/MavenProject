@@ -1,4 +1,4 @@
-package com.test.mavenProject.MavenProject;
+/*package com.test.mavenProject.MavenProject;
 
 import org.junit.Assert;
 import org.testng.annotations.Test;
@@ -15,3 +15,4 @@ public void testFailMethod() {
 	Assert.assertTrue(true);
 }
 }
+*/

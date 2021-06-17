@@ -53,18 +53,8 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.3.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.141.59</version>
-		</dependency>
-		<dependency>
+		
+	<!-- 	<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.7.30</version>
@@ -76,12 +66,7 @@
 			<version>1.7.30</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
+	 -->	
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -112,18 +97,12 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.7</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20180130</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.15</version>
-		</dependency>
-
+ 		-->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
@@ -163,14 +142,16 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.0</version>
 				</plugin>
+				<!--
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.22.1</version>
 				</plugin>
-				<plugin>
+				 <plugin>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.0.2</version>
+					<version>3.2.0</version>
 				</plugin>
+				 -->
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
 					<version>2.5.2</version>
@@ -199,6 +180,23 @@
 					</configuration>
 				</plugin>
 				 -->
+				 <!-- 
+				  <plugin>
+			     	<groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-jar-plugin</artifactId>
+			        <version>3.1.0</version>
+			        <configuration>
+			          <archive>
+			            //<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+			         	 <manifest>
+			            	<addClasspath>true</addClasspath>
+			            	<mainClass>com.java.mavenProject.MavenProject.TestRunner</mainClass>
+			            </manifest>
+			          </archive>
+			        </configuration>
+     			 </plugin>
+     			  -->
+     				 
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>exec-maven-plugin</artifactId>
@@ -211,9 +209,10 @@
 						</execution>
 					</executions>
 					<configuration>
-						<mainClass>com.test.mavenProject.MavenProject.TestRunner</mainClass>
+						<mainClass>com.java.mavenProject.MavenProject.TestRunner</mainClass>
 					</configuration>
 				</plugin>
+				
 			</plugins>
 		</pluginManagement>
 	</build>

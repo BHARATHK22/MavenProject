@@ -1,4 +1,4 @@
-package com.test.mavenProject.MavenProject;
+/*package com.test.mavenProject.MavenProject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -34,3 +34,4 @@ public class ReadDataBaseTest {
 		  
 	}
 }
+*/
