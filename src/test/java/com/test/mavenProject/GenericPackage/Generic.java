@@ -5,5 +5,5 @@ public class Generic{
 	public String welcome = null;
 	public String tojava = null;
 	public String world = null;
-	public String IamBharath = null;
+	
 }
