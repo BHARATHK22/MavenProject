@@ -37,42 +37,7 @@ pipeline {
                bat "del TEST_RESULT.zip"
                zip zipFile: 'TEST_RESULT.zip', archive: false, dir: "${WORKSPACE}/Report/TEST_REPORT"
             }
-        }
-        stage('JIRA Attachment') {
-            steps {
-               script { 
-               	println "scriptDir"+scriptDir
-				def workspace = WORKSPACE
-				println "Workspace->"+workspace 
-				//println "PATH----->"+path
-				def directory = pwd()
-				println "Directory->"+directory
-				
-				
-				def filePath = "${workspace}/logTestcaseFolder/logTestCaseFile.properties"
-				println "filePath-->"+filePath
-				def props = readProperties  file: filePath
-				
-				println "sizeOfProperty-->"+props.size()
-				
-				def testReportFolder= "${workspace}/Report/"
-				
-				Set<Object> keys = props.keySet();
-    			
-    			for (Object key:keys) {
-        			println "Key  -->"+key
-        			def value = props[key]
-        			println "Value-->"+value
-        			
-        			def testCaseReportPath= testReportFolder+props[key]+".html"
-        			println "testCaseReportPath-->"+testCaseReportPath     
-        			
-        			jiraUploadAttachment idOrKey: "${key}", file: testCaseReportPath, site: 'JIRA'
-  								
-   				}
-			  }
-            }
-        }
+        }   
      } 
      post {
         
