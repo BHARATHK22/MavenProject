@@ -17,9 +17,7 @@ public class ReadData extends Generic {
 	static int count =0;
 	static String value=null;
 	
- 
-	
-	@SuppressWarnings("unchecked")
+ 	@SuppressWarnings("unchecked")
 	public static String readWebElement(String locatorPath){
 
 		
