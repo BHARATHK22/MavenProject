@@ -19,7 +19,7 @@ pipeline {
     	stage('MVN exec:java') {
             steps {
                 //sh "mvn exec:java"
-		sh ""$job""
+		sh "$job"
             }
         }
         stage('BAT Exe') {
