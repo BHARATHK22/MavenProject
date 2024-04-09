@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    environment{
+        NEW_VERSION='1.3.0' 
+        def readTestCases ="E:\\eclipse-workspace\\MavenProject\\InputFiles\\"
+        def testCase=""
+        def scriptDir = "getClass().protectionDomain.codeSource.location.path"
+		//def path = "${WORKSPACE}"
+	}
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Hello World"
+                echo "selected Cycle ${JiraCycle}"
+				//String cycle =JiraCycle
+                println scriptDir
+                println "${WORKSPACE}"
+			}
+		}
+    
+    stage('Git') {
+            steps {
+				//git branch: 'master'
+				//credentialsId: 'Credential ID',
+                       git url: 'https: //github.com/BHARATHK22/MavenProject.git'
+				// sh "git checkout"
+			}
+		}
+    stage('Git Checkout') {
+            steps {
+				       
+                       sh "git checkout"
+			}
+		}
+		    stage('Read File Data') {
+            steps {
+				       
+                   def isSuccess = true
+def file = null
+
+try {
+ file = readFile(file: "/myrepo/${params.value}.txt")
+				}catch(e) {
+ isSuccess = false
+				}
+			}
+		}
+	}
