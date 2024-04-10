@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+    environment{
+        NEW_VERSION='1.3.0' 
+        def readTestCases ="E:\\eclipse-workspace\\MavenProject\\InputFiles\\"
+        def testCycle= "${JiraCycle}"
+        def scriptDir = "getClass().protectionDomain.codeSource.location.path"
+		//def path = "${WORKSPACE}"
+	}
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Hello World"
+                echo "selected Cycle ${JiraCycle}"
+				//String cycle =JiraCycle
+                println scriptDir
+                println "${WORKSPACE}"
+			}
+		}
+    
+    stage('Git') {
+            steps {
+				//git branch: 'master'
+				//credentialsId: 'Credential ID',
+                       git url: 'https://github.com/BHARATHK22/MavenProject.git'
+                       
+                      // sh "git checkout"
+			}
+		}
+    stage('Git Checkout') {
+            steps {
+				       
+                      sh "git checkout"
+			}
+		}
+    
+    stage('Read File From Checkout') {
+            steps {
+				       
+                       script{
+                          def file = readFile "${WORKSPACE}/Resources/ReadData.txt"
+                          echo "File content: ${file}" 
+                       
+                          def filePath= "${WORKSPACE}/Resources/ReadData.txt"
+                          def fileContent = readFile(filePath)
+                          def oldTxt = 'world'
+                          def newTxt = 'Real World of programming'
+                          
+                          def modifiedContent = fileContent.replaceAll(oldTxt,"${JiraCycle}")
+                          
+                          writeFile(file:filePath, text: modifiedContent)
+                          println "File updated Successfully"
+                       
+                       }
+			}
+		}
+		stage('Run Test classes') {
+            steps {
+                sh "mvn clean test"
+            }
+        }
+}
+}
