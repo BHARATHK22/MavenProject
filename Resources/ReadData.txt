@@ -1,1 +1,5 @@
-Welcome to jenkins world.
+{
+  "JiraCycle":"##JiraCycle##",
+  "Version":"##Version##",
+  "Folder":"##Folder##"
+}
