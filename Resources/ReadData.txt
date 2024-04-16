@@ -3,3 +3,4 @@
   "Version":"##Version##",
   "Folder":"##Folder##"
 }
+world
